@@ -10,8 +10,8 @@ MINIMAL=
 ifdef CONFIG_SPL_BUILD
 ifdef CONFIG_SPL_INIT_MINIMAL
 MINIMAL=y
-endif
-endif
+endif # CONFIG_SPL_INIT_MINIMAL
+endif # CONFIG_SPL_BUILD
 
 ifdef MINIMAL
 # necessary to create built-in.o
@@ -24,16 +24,16 @@ obj-$(CONFIG_FSL_PIXIS)	+= pixis.o
 ifndef CONFIG_SPL_BUILD
 obj-$(CONFIG_FSL_NGPIXIS)	+= ngpixis.o
 obj-$(CONFIG_VID)		+= vid.o
-endif
+endif # CONFIG_SPL_BUILD
 obj-$(CONFIG_FSL_QIXIS)	+= qixis.o
 obj-$(CONFIG_PQ_MDS_PIB)	+= pq-mds-pib.o
 ifndef CONFIG_SPL_BUILD
 obj-$(CONFIG_ID_EEPROM)	+= sys_eeprom.o
-endif
+endif # CONFIG_SPL_BUILD
 obj-$(CONFIG_FSL_SGMII_RISER)	+= sgmii_riser.o
 ifndef CONFIG_RAMBOOT_PBL
 obj-$(CONFIG_FSL_FIXED_MMC_LOCATION)	+= sdhc_boot.o
-endif
+endif # CONFIG_RAMBOOT_PBL
 
 obj-$(CONFIG_FSL_DIU_CH7301)	+= diu_ch7301.o
 
@@ -41,7 +41,7 @@ ifdef CONFIG_ARM
 obj-$(CONFIG_DEEP_SLEEP)		+= arm_sleep.o
 else
 obj-$(CONFIG_DEEP_SLEEP)		+= mpc85xx_sleep.o
-endif
+endif # CONFIG_ARM
 
 obj-$(CONFIG_FSL_DCU_SII9022A)    += dcu_sii9022a.o
 
@@ -65,9 +65,10 @@ obj-$(CONFIG_POWER_MC34VR500)	+= mc34vr500.o
 obj-$(CONFIG_DM_PMIC_PFUZE100)	+= pfuze_dm.o
 obj-$(CONFIG_MXC_EPDC)		+= epdc_setup.o
 obj-y				+= mmc.o
+$(info just added mmc.o)
 ifdef CONFIG_FSL_FASTBOOT
 obj-${CONFIG_ANDROID_RECOVERY} += recovery_keypad.o
-endif
+endif # CONFIG_FSL_FASTBOOT
 
 obj-$(CONFIG_LS102XA_STREAM_ID)	+= ls102xa_stream_id.o
 
@@ -82,7 +83,7 @@ obj-$(CONFIG_LAYERSCAPE_NS_ACCESS)	+= ns_access.o
 
 ifdef CONFIG_SECURE_BOOT
 obj-$(CONFIG_CMD_ESBC_VALIDATE) += fsl_validate.o cmd_esbc_validate.o
-endif
+endif # CONFIG_SECURE_BOOT
 obj-$(CONFIG_CHAIN_OF_TRUST) += fsl_chain_of_trust.o
 
-endif
+endif # MINIMAL
