@@ -21,8 +21,6 @@
 #include <thermal.h>
 #include <sata.h>
 
-#include <dm/uclass.h>
-
 #ifdef CONFIG_VIDEO_GIS
 #include <gis.h>
 #endif
