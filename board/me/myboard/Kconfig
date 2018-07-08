@@ -1,0 +1,15 @@
+if TARGET_MYBOARD
+
+config SYS_BOARD
+	default "myboard"
+
+config SYS_VENDOR
+	default "me"
+
+config SYS_CONFIG_NAME
+	default "myboard"
+
+config MX6SXSABRESD_EMMC_REWORK
+	bool "Select for the board with eMMC rework"
+
+endif

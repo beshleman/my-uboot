@@ -82,6 +82,15 @@ choice
 	prompt "MX6 board select"
 	optional
 
+config TARGET_MYBOARD
+	bool "myboard"
+	select MX6SX
+	select SUPPORT_SPL
+	select DM
+	select DM_THERMAL
+	select BOARD_EARLY_INIT_F
+	select BOARD_LATE_INIT
+
 config TARGET_ADVANTECH_DMS_BA16
 	bool "Advantech dms-ba16"
 	select BOARD_LATE_INIT
