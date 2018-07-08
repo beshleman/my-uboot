@@ -242,6 +242,15 @@ config TARGET_MX6SXSABRESD
 	select BOARD_EARLY_INIT_F
 	select BOARD_LATE_INIT
 
+config TARGET_MYBOARD
+	bool "myboard"
+	select MX6SX
+	select SUPPORT_SPL
+	select DM
+	select DM_THERMAL
+	select BOARD_EARLY_INIT_F
+	select BOARD_LATE_INIT
+
 config TARGET_MX6SXSABREAUTO
         bool "mx6sxsabreauto"
 	select BOARD_LATE_INIT
@@ -519,5 +528,6 @@ source "board/wandboard/Kconfig"
 source "board/warp/Kconfig"
 source "board/freescale/mx6dqscm/Kconfig"
 source "board/freescale/mx6sxscm/Kconfig"
+source "board/me/myboard/Kconfig"
 
 endif
